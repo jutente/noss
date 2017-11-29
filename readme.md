@@ -1,4 +1,6 @@
-Título : NOS : Sistema de Gestão de transferencia de servidores
+Título : NOS : Sistema de Gestão de transferencia de servidores.
+
+Desenvolvedor: Juliano Tente de Almeida.
 
 License
 
