@@ -62,9 +62,9 @@ class DestinoController extends Controller
                 }
             }
 
-            if (request()->has('setor')){
+           /*  if (request()->has('setor')){
                 $destinos = $destinos->where('setor', 'like', '%' . request('setor') . '%');
-            }
+            } */
 
 
             if (request()->has('iddestino')){
@@ -74,20 +74,21 @@ class DestinoController extends Controller
                  }
              }
 
-         /*  if (request()->has('idsetor')){
+            if (request()->has('idsetor')){
                  if (request('idsetor') != ""){
                     
                     $destinos = $destinos->where('idsetor', '=', request('idsetor'));
                   
                  }
-             }  */     
+            }
+
            // ordenando
-           //  $destinos = $destinos->orderBy('destino', 'asc');
+            // $destinos = $destinos->orderBy('destino', 'asc');
     
              $destinos = $destinos->paginate(session('perPage'))->appends([
                  'servidors' => request('servidor'),
                  'iddestino' => request('iddestino'),
-                // 'idsetor' => request('idsetor'),
+                 'idsetor' => request('idsetor'),
              ]);
     
              $perPages = PerPage::orderBy('valor')->pluck('nome', 'valor');
@@ -155,7 +156,7 @@ class DestinoController extends Controller
     {
         $destino = Destino::findOrFail($iddestino);
         
-        $destinos = destino::orderBy('setor')->pluck('setor', 'iddestino');
+        //$destinos = destino::orderBy('setor')->pluck('setor', 'iddestino');
         $setors = Setor::orderBy('setor')->pluck('setor', 'idsetor');
         $servidors = Servidor::orderBy('servidor')->pluck('servidor', 'idservidor');
            return view('destino.edit', compact('destino','servidors','setors'));

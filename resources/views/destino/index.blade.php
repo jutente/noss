@@ -53,7 +53,7 @@
 	                    @foreach($destinos as $destino)
 	                    <tr>
 	                        <td>{{$destino->servidor->servidor}}</td>
-	                        <td>{{$destino->setor}}</td>
+	                        <td>{{$destino->setor->setor}}</td>
 							<td>{{$destino->protocolo}}</td>
 
 							@if (isset($destino->dtcadastro))

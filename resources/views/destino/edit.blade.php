@@ -32,7 +32,7 @@
                 </div>    
             </div>
 
-            <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}">
+           {{--   <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}">
                     {{ Form::label('setor', 'Setor:', ['class' => 'col-md-4 control-label']) }}
                     <div class="col-md-6">
                         {{ Form::text('setor', $destino->setor, ['class' => 'form-control text-uppercase']) }}
@@ -42,7 +42,7 @@
                             </span>
                         @endif
                     </div>    
-            </div>
+            </div>  --}}
 
             <!--  Protocolo -->
             <div class="form-group {{ $errors->has('protocolo') ? ' has-error' : '' }}">
@@ -71,7 +71,7 @@
             </div>
 
             <!-- Selecionar setor -->
-            <!-- <div class="form-group  {{ $errors->has('idsetor') ? ' has-error' : '' }}">
+             <div class="form-group  {{ $errors->has('idsetor') ? ' has-error' : '' }}">
             {{ Form::label('idsetor', 'Setores:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
                 {!! Form::select('idsetor', $setors, $destino->idsetor, ['class' => 'form-control']) !!}
@@ -81,7 +81,7 @@
                     </span>
                 @endif
                 </div>    
-            </div> -->
+            </div>
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             {{ Form::submit('Salvar', ['class' => 'btn btn-primary']) }}
