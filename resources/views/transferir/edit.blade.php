@@ -6,8 +6,8 @@
 
 
             <div class="col-md-12">
-                <div class="alert alert-info text-center">
-                    <strong>Atençao!</strong> Selecione o nome oficial do setor {{$destinosetor}}
+                <div class="alert alert-danger text-center">
+                    <strong>Atençao!</strong> Transferir do setor {{$servidor->setor->setor}} para o setor {{$destinosetor->setor}}
                 </div>
 
                 @if(Session::has('edited_servidor'))
@@ -81,7 +81,7 @@
             <div class="form-group  {{ $errors->has('idsetor') ? ' has-error' : '' }}">
             {{ Form::label('idsetor', 'Setores:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
-                {!! Form::select('idsetor', $setors, $servidor->idsetor, ['class' => 'form-control']) !!}
+                {!! Form::select('idsetor', $setors, $destinosetor->idsetor, ['class' => 'form-control']) !!}
                 @if ($errors->has('idsetor'))
                     <span class="help-block">
                         <strong>{{$errors->first('idsetor')}}</strong>
@@ -91,7 +91,7 @@
             </div>
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
-                            {{ Form::submit('Salvar', ['class' => 'btn btn-primary']) }}
+                            {{ Form::submit('Transferir', ['class' => 'btn btn-primary']) }}
                         </div>
                     </div>
                     {!! Form::close() !!}

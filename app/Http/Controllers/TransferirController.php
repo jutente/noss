@@ -92,9 +92,9 @@ class TransferirController extends Controller
     public function edit(request $setor, $id)
     {   
 
-       // dd($setor->setor);
-        $destinosetor = $setor->setor;
-
+       
+        $destinosetor = Setor::findorfail($setor->setor);
+        
         $servidor = Servidor::findOrFail($id);
         
         $cargos = Cargo::orderBy('cargo')->pluck('cargo', 'idcargo');
