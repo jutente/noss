@@ -31,15 +31,7 @@ class ConfigUsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['middleware' => 'auth']);
-        $this->middleware(['middleware' => 'temacesso']);
-
-        /*
-        -- controle de acesso a ser usado como padrão -- 
-        $this->middleware('verificaperfil:administrador,operador,leitura',   ['only' => ['show', 'index', 'export']]);
-        $this->middleware('verificaperfil:administrador,operador',   ['except' => ['show', 'index', 'export']]);
-        */
-        $this->middleware(['middleware' => 'verificaperfil:administrador']);
+        $this->middleware('auth');
     }
 
     /**

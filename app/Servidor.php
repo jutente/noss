@@ -9,7 +9,7 @@ class Servidor extends Model
     protected $primaryKey = 'idservidor';
 
     protected $fillable = [
-        'servidor', 'matricula', 'tel', 'idcargo', 'idsetor' 
+        'servidor', 'matricula', 'tel', 'idcargo', 'idsetor', 'situacao', 'jornada'
     ];
 
     public function cargo(){

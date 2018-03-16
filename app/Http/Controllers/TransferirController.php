@@ -32,11 +32,7 @@ class TransferirController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['middleware' => 'auth']);
-        $this->middleware(['middleware' => 'temacesso']);
-
-        $this->middleware('verificaperfil:administrador,operador,leitura',  ['only' => ['show', 'index', 'export']]);
-        $this->middleware('verificaperfil:administrador',  ['except' => ['show', 'index', 'export']]);
+        $this->middleware('auth');
     }
     
     /**
@@ -102,6 +98,7 @@ class TransferirController extends Controller
 
            return view('transferir.edit', compact('servidor','cargos','setors','destinosetor'));
     }
+
 
     /**
      * Update the specified resource in storage.

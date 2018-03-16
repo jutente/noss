@@ -27,11 +27,7 @@ class CargoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['middleware' => 'auth']);
-        $this->middleware(['middleware' => 'temacesso']);
-
-        $this->middleware('verificaperfil:administrador,operador,leitura',   ['only' => ['show', 'index', 'export']]);
-        $this->middleware('verificaperfil:administrador',   ['except' => ['show', 'index', 'export']]);
+        $this->middleware('auth');
     }
         
     /**
