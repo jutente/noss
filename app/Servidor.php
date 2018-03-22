@@ -29,5 +29,15 @@ class Servidor extends Model
         $this->attributes['servidor'] = mb_strtoupper($value);
     }
 
+    public function setSituacaoAttribute($value)
+    {
+        $this->attributes['situacao'] = mb_strtoupper($value);
+    }
+
+    public function setJornadaAttribute($value)
+    {
+        $this->attributes['jornada'] = mb_strtoupper($value);
+    }
+
 
 }

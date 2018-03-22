@@ -75,6 +75,32 @@
                     </div>    
                 </div>
 
+                <!-- Jornada semanal -->
+                <div class="form-group {{ $errors->has('jornada') ? ' has-error' : '' }}">
+                    {{ Form::label('jornada', 'Jornada semanal:', ['class' => 'col-md-4 control-label']) }}
+                    <div class="col-md-6">
+                        {{ Form::text('jornada', '', ['class' => 'form-control text-uppercase','placeholder'=>'Exemplo: 12x36h']) }}
+                        @if ($errors->has('jornada'))
+                            <span class="help-block">
+                                <strong>{{$errors->first('jornada')}}</strong>
+                            </span>
+                        @endif
+                    </div> 
+                </div>
+
+                <!-- situacao -->
+                <div class="form-group {{ $errors->has('situacao') ? ' has-error' : '' }}">
+                    {{ Form::label('situacao', 'Situacao:', ['class' => 'col-md-4 control-label']) }}
+                    <div class="col-md-6">
+                        {{ Form::text('situacao', '', ['class' => 'form-control text-uppercase','placeholder'=>'Exemplo: efetivo']) }}
+                        @if ($errors->has('situacao'))
+                            <span class="help-block">
+                                <strong>{{$errors->first('situacao')}}</strong>
+                            </span>
+                        @endif
+                    </div> 
+                </div>
+
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                         {{ Form::submit('Incluir', ['class' => 'btn btn-primary']) }}

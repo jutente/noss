@@ -72,3 +72,5 @@ Route::get('/destino/export/csv', 'DestinoController@export')->name('destino.exp
 Route::resource('/transferir', 'TransferirController');
 
 Route::resource('/online', 'OnLineController');
+
+Route::get('/relsetor/{id}', 'ReportController@index')->name('relsetor');

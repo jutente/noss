@@ -8,6 +8,7 @@ use App\Servidor;
 use App\Cargo;
 use App\Setor;
 use App\Destino;
+use App\Historico;
 
 use App\PerPage;
 
@@ -74,8 +75,8 @@ class TransferirController extends Controller
      */
     public function show($id)
     {
-         $servidor = Servidor::findOrFail($id);
-        
+        $servidor = Servidor::findOrFail($id);
+
            return view('transferir.show', compact('servidor'));
     }
 
@@ -87,8 +88,6 @@ class TransferirController extends Controller
      */
     public function edit(request $setor, $id)
     {   
-
-       
         $destinosetor = Setor::findorfail($setor->setor);
         
         $servidor = Servidor::findOrFail($id);
@@ -114,12 +113,22 @@ class TransferirController extends Controller
         ]);
 
         $servidor = Servidor::findOrFail($idservidor);
-            
+                  
+        $historico = new Historico;
+        $historico->idservidor = $idservidor;
+        $historico->idsetororigem = $servidor->idsetor;
+        $historico->idsetordestino = $request->idsetor;
+        $historico->save();
+
+        $lastid = $historico->id;
+
         $servidor->update($request->all());
-        
+
+        return redirect()->route('relsetor', $lastid);
+
        // Session::flash('edited_servidor', 'Setor alterado com sucesso!');
        
-        return redirect()->route('transferir.show', $idservidor);
+       // return redirect()->route('transferir.show', $lastid);
     }
 
     /**
