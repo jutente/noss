@@ -118,17 +118,23 @@ class TransferirController extends Controller
         $historico->idservidor = $idservidor;
         $historico->idsetororigem = $servidor->idsetor;
         $historico->idsetordestino = $request->idsetor;
+        $historico->gerarelatorio = 0;
+        $historico->dtmudanca = $request->dtmudanca;
+      
         $historico->save();
-
-        $lastid = $historico->id;
-
-        $servidor->update($request->all());
-
-        return redirect()->route('relsetor', $lastid);
-
-       // Session::flash('edited_servidor', 'Setor alterado com sucesso!');
+             
+        $servidor->idsetor = $request->idsetor;
        
-       // return redirect()->route('transferir.show', $lastid);
+
+        $servidor->save();
+
+       // $servidor->update($request->all());
+
+       // return redirect()->route('relsetor', $lastid);
+
+       Session::flash('edited_servidor', 'Setor alterado com sucesso!');
+       
+        return redirect()->route('transferir.show', $idservidor);
     }
 
     /**
@@ -140,8 +146,7 @@ class TransferirController extends Controller
     public function destroy($id)
     {
         // Destino::findOrFail($idservidor)->delete();
-        //dd($id);
-
+      
         DB::table('destinos')->where('idservidor','=',$id)->delete();
         
         Session::flash('deleted_destino', 'As outras opçoes do servidor foram excluidas!');

@@ -51,7 +51,7 @@
                         </li>                       
                         <li><a href="{{route('servidor.index')}}">Servidores</a></li>
                         <li><a href="{{route('destino.index')}}">Solicitaçoes</a></li> 
-                        <li><a href="#">Relatórios</a></li>                                              
+                        <li><a href="{{route('guia')}}">Relatórios</a></li>                                              
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajuda<span class="caret"></span></a>
                             <ul class="dropdown-menu">

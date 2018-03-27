@@ -72,6 +72,7 @@ class ReportController extends Controller
         $codlotacaoorigem = $setororigem->centrocusto;
         $lotacaodestino = $setordestino->setor;
         $codlotacaodestino = $setordestino->centrocusto;
+        $dtmudanca =\Carbon\Carbon::parse($historico->dtmudanca)->format('d/m/Y');
 
         $report->process(
             public_path() . '/reports/guia_transferencia.jrxml',
@@ -84,7 +85,8 @@ class ReportController extends Controller
             'lotacaoorigem' => $setororigem->setor,
             'codlotacaoorigem' => $setororigem->centrocusto,
             'lotacaodestino' => $setordestino->setor,
-            'codlotacaodestino' => $setordestino->centrocusto],
+            'codlotacaodestino' => $setordestino->centrocusto,
+            'dtmudanca' => $dtmudanca,],
             $this->getDatabaseConfig()
         )->execute();
    

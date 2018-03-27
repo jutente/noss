@@ -74,3 +74,5 @@ Route::resource('/transferir', 'TransferirController');
 Route::resource('/online', 'OnLineController');
 
 Route::get('/relsetor/{id}', 'ReportController@index')->name('relsetor');
+
+Route::get('/relatorio', 'RelatorioController@lista')->name('guia');

@@ -28,7 +28,7 @@
                 <div class="form-group {{ $errors->has('servidor') ? ' has-error' : '' }}">
                 {{ Form::label('servidor', 'Servidor:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
-                    {{ Form::text('servidor', $servidor->servidor, ['class' => 'form-control text-uppercase']) }}
+                    {{ Form::text('servidor', $servidor->servidor, ['class' => 'form-control text-uppercase','readonly']) }}
                     @if ($errors->has('servidor'))
                         <span class="help-block">
                             <strong>{{$errors->first('servidor')}}</strong>
@@ -41,7 +41,7 @@
               <div class="form-group {{ $errors->has('matricula') ? ' has-error' : '' }}">   
                 {{ Form::label('matricula', 'Matricula:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
-                    {{ Form::text('matricula', $servidor->matricula, ['class' => 'form-control']) }}
+                    {{ Form::text('matricula', $servidor->matricula, ['class' => 'form-control','readonly']) }}
                     @if ($errors->has('matricula'))
                         <span class="help-block">
                             <strong>{{$errors->first('matricula')}}</strong>
@@ -54,7 +54,7 @@
             <div class="form-group {{ $errors->has('tel') ? ' has-error' : '' }}">
                 {{ Form::label('tel', 'Telefone:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
-                    {{ Form::text('tel', $servidor->tel, ['class' => 'form-control']) }}
+                    {{ Form::text('tel', $servidor->tel, ['class' => 'form-control','readonly']) }}
                     @if ($errors->has('tel'))
                         <span class="help-block">
                             <strong>{{$errors->first('tel')}}</strong>
@@ -68,7 +68,7 @@
             <div class="form-group  {{ $errors->has('idcargo') ? ' has-error' : '' }}">
             {{ Form::label('idcargo', 'Cargos:', ['class' => 'col-md-4 control-label']) }}
                 <div class="col-md-6">
-                {!! Form::select('idcargo', $cargos, $servidor->idcargo, ['class' => 'form-control']) !!}
+                {!! Form::text('idcargo', $servidor->cargo->cargo, ['class' => 'form-control','readonly']) !!}
                 @if ($errors->has('idcargo'))
                     <span class="help-block">
                         <strong>{{$errors->first('idcargo')}}</strong>
@@ -87,6 +87,19 @@
                         <strong>{{$errors->first('idsetor')}}</strong>
                     </span>
                 @endif
+                </div>    
+            </div>
+
+            <!-- Data da mudança -->
+            <div class="form-group {{ $errors->has('dtmudanca') ? ' has-error' : '' }}">
+                {{ Form::label('dtmudanca', 'Data da mudança:', ['class' => 'col-md-4 control-label']) }}
+                <div class="col-md-6">
+                    {{ Form::date('dtmudanca', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                    @if ($errors->has('dtmudanca'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('dtmudanca')}}</strong>
+                        </span>
+                    @endif
                 </div>    
             </div>
                     <div class="form-group">
