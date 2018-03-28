@@ -33,4 +33,14 @@ class RelatorioController extends Controller
         return view('guia.relatorio', compact('guias')); 
 
     }
+
+    public function permuta()
+    {     
+        $guias = new Historico;       
+               
+        $guias = $guias->orderby('dtmudanca','desc')->paginate(10);
+
+        return view('guia.relatorio', compact('guias')); 
+
+    }
 }
