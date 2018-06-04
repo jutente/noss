@@ -42,9 +42,9 @@
 	                <table class="table table-striped">
 	                    <thead>
 	                    <tr>
-	                        <th>Servidor</th>	                       
-							<th>Setor Desejado</th>
-							<th>Protocolo</th>
+							<th>Servidor</th>	      
+							<th>Setor de Origem</th>                 
+							<th>Setor Desejado</th>							
 							<th>Data Cadastro</th>
 	                        <th></th>
 	                    </tr>
@@ -52,9 +52,9 @@
 	                    <tbody>
 	                    @foreach($destinos as $destino)
 	                    <tr>
-	                        <td>{{$destino->servidor->servidor}}</td>
-	                        <td>{{$destino->setor->setor}}</td>
-							<td>{{$destino->protocolo}}</td>
+	                        <td>{{$destino->servidor->servidor}}</td>	                        
+							<td>{{$destino->servidor->setor->setor}}</td>
+							<td>{{$destino->setor->setor}}</td>
 
 							@if (isset($destino->dtcadastro))
  								<td>{{\Carbon\Carbon::parse($destino->dtcadastro)->format('d/m/Y')}}</td>

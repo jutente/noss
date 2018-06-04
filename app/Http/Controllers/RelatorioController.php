@@ -9,6 +9,7 @@ use App\Historico;
 use App\PerPage;
 
 use Response;
+
 use Auth;
 
 use Illuminate\Support\Facades\Session;
@@ -16,13 +17,21 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Validation\Rule;
 
+use Illuminate\Support\Facades\Gate;
+//use Illuminate\Support\Facades\Gate;
+
+
+
 class RelatorioController extends Controller
 {
     public function __construct()
-    {
-        $this->middleware('auth');
+    {    
+   
+        $this->middleware('auth');         
+     
     }
     
+   
 
     public function lista()
     {     
